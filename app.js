@@ -14,7 +14,8 @@ const ItemCtrl = (function() {
             // {id:0, name: 'Steak Dinner', calories: 2000},
             // {id:1, name: 'Shake', calories: 750},
         ],
-       currentItem: null, // when specific item is selected
+        // when specific item is selected
+       currentItem: null,
        totalCalories: 0
    }
 
@@ -107,8 +108,7 @@ const UICtrl = (function() {
         populateItemList: function(items){
             let html = '';
             items.forEach(function(item){
-                html += `
-                <li class="collection-item" id="item-${item.id}">
+                html += `<li class="collection-item" id="item-${item.id}">
                 <strong>${item.name}: </strong> <em>${item.calories} Calories</em>
                 <a href="#" class="secondary-content">
                     <i class="edit-item fa fa-pencil"></i>
@@ -125,7 +125,7 @@ const UICtrl = (function() {
                 calories: document.querySelector(UISelectors.itemCaloriesInput).value
             }
         },
-        addListItem(item){
+        addListItem: function(item){
             // Show the list 
             document.querySelector(UISelectors.itemList).style.display = 'block';
 
@@ -256,10 +256,8 @@ const App = (function(ItemCtrl, UICtrl) {
         if (e.target.classList.contains('edit-item')){
             // Get list item id (item-0, item-1)  <a> --> <li>
             const listId = e.traget.parentNode.parentNode.id;
-            console.log(listId);
             // Break into an array
             const listIdArr = listId.split('-');
-
             // Get the actual ID
             const id = parseInt(listIdArr[1]);
 
