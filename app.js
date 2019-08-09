@@ -25,7 +25,7 @@ const ItemCtrl = (function() {
            return data.items;
        },
        addItem: function(name, calories) {
-           let ID;
+        let ID;
             // Create unique id for each item
             if (data.items.length > 0){
                 ID = data.items[data.items.length - 1].id + 1;
@@ -130,7 +130,7 @@ const UICtrl = (function() {
                 </li>`;
             });
 
-            // Insert items         7:54
+            // Insert items
             document.querySelector(UISelectors.itemList).innerHTML = html;
         },
         getItemInput: function(){
@@ -291,7 +291,7 @@ const App = (function(ItemCtrl, UICtrl){
         // Event delegation
         if (e.target.classList.contains('edit-item')){
             // Get list item id (item-0, item-1)  <a> --> <li>
-            const listId = e.traget.parentNode.parentNode.id;
+            const listId = e.target.parentNode.parentNode.id;
             // Break into an array
             const listIdArr = listId.split('-');
             // Get the actual ID
